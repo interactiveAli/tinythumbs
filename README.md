@@ -18,4 +18,4 @@ Navigate to tinythumbs directory and start app!
 ```
 tinythumbs $ node start.js
 ```
-Go to 'http://localhost:1111' to view application.
+Go to 'http://localhost:1111' to view interface.
