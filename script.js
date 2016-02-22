@@ -1,8 +1,3 @@
-//Copyright 2015 Allisha M. Ali. All Rights Reserved.  
-//No part of this application and code within, shall be replicated, 
-//reproduced or modified in any way without expressed written consent.
-
-
 var input,
     fileList,
     customImageName="",
