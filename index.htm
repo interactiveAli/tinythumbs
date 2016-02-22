@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tiny Thumbs</title>
+  
+ <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+ <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/style.min.css"> -->
+</head>
+
+<body>
+  <input type='file' id='images' multiple accept='image/*'>
+  <div id="loadStatus"><p></p></div>
+  <header>
+    <h1>tinyThumbs</h1>
+    <p class="emphasize">Resize your images or create perfectly positioned thumbnails for FREE!</p>
+  </header>
+  <section id="imageForm">
+  <form id="form" runat="server"><!--  class="dropzone" action="#" -->
+    <label class="dimensions block"><span>Thumb Width:</span><input type='text' id='thumbWidth' placeholder='100'>px</label>
+    <label  class="dimensions block"><span>Thumb Height:</span><input type='text' id='thumbHeight' placeholder='100'>px</label>
+    <label class="dimensions"><span>Custom Filename:</span><input type='text' id='customImageName' placeholder='e.g. myImage' max='20' ></label>
+    <label class="dimensions"><span>Start Increment At:</span><input type='text' id='startIncrAt' placeholder='0' max='20' ></label>
+    <article class="note">
+      <p><span class="emphasize">Naming your images:</span> The custom filename feature is optional. If a name is entered in this field, resulting filenames will be incremented. Example: myImages_0.png, myImages_1.png, myImages_2.png, etc. By default, images will maintain their original filenames with the thumbnail size added. Example: myImage_100x100.png</p>
+    </article>
+    <div id="outputFileType">
+      Save thumb as: 
+      <label class="inlineBlock">
+        <input type="radio" name="file_type" data-value="image/png" class="hide" checked>
+        <figure class="icon" title="save as PNG"></figure>
+      </label>
+      <label class="inlineBlock">
+        <input type="radio" name="file_type" data-value="image/jpeg" class="hide">
+        <figure class="icon" title="save as JPG"></figure>
+      </label>
+    </div>
+   <!-- Change class to 'btnUpload' for upload btn and 'dropzone' for drag/drop area -->
+    <label for='images' class='dropzone'>
+      <h2>Drop your image files here!</h2>
+      <p>Maximum of <span class="maxNumFiles">0</span> files, up to <span class="maxFileSize">0</span> each.<br>(You can also click this area to open the file dialog box.)</p>
+    </label>
+  </form>
+  </section>
+  <div id="editOptions" class="hide">
+    <img title="zoom in" id="iconZoomIn" src="img/icon_zoom_in.png" width="20" height="20">
+    <img title="best fit" id="iconContract" src="img/icon_contract_2.png" width="20" height="20">
+    <img title="zoom out" id="iconZoomOut" src="img/icon_zoom_out.png" width="20" height="20">
+    <img title="delete" id="iconDelete" src="img/icon_delete.png" width="20" height="20">
+    <a class="tooltips" href="#">
+      <img title="details" id="iconDetails" src="img/icon_tag.png" width="20" height="20">
+      <div id="imageDetails">
+        <label>Image Name: <span class="name">image name</span></label>
+        <label>File Type: <span class="fileType">file type</span></label>
+        <label>Image Size (px): <span class="width">width</span> x <span class="height">height</span></label>
+        <label>File Size: <span class="sizeAbbr">size kb</span></label>
+      </div>
+    </a>
+  </div>
+  <section id="imagePreviews" class="hide">
+    <h2>Loading your thumbnails!</h2>
+    <p class="prompt loaded">Zoom or drag the images into position.</p>
+    <p class="prompt loading"><span class="emphasize">This may take a few minutes.<br>Please be patient while your thumbs are being loaded.</p>
+    <p class="status"><span class="numthumbs">0</span> thumbs created. <span class="totbytes"></span> loaded.</p>
+    <ul class="errors"></ul>
+  </section>
+  <section id="imageProcesses" class="hide"></section>
+  <section id="download" class="hide">
+    <h2>Done editing?</h2>
+    <p id="smoothingWarning" class="smoothing"><span class="emphasize block">WARNING: Once applied, image smoothing cannot be undone!</span> Zooming into a "smoothed" image may appear blurry. Therefore, ensure your thumb is positioned to your liking before proceeding. This process may take a few minutes.</p>
+    <div id="btnImageSmoothing" class="smoothing btn aqua"><span>apply image smoothing</span></div>
+    <p class="prompt predownload"><span class="emphasize">Happy with your thumbs?</span><br>Click the button below to download a ZIP file containing all your resized images.</p>
+     <p class="prompt downloading"><span class="emphasize">This may take a few of minutes.</span><br>Please be patient while your thumbs are being processed.</p>
+    <p class="status hide"><span class="process"></span> <span class="prepthumb">0</span> of <span class="numthumbs"></span> thumbs.</p>
+     <p class="prompt zipping">Has your download stalled? <a href="#" class="emphasize">Click here</a> to download again.</p>
+    <ul class="errors hide"></ul>
+    <!-- <div id="downloadComplete"></div> -->
+    <div id="btnDwnldThumbs" class="btn lime block"><span>download thumbs</span></div>
+    <p id="downloadFailMsg" class="hide">If your ZIP file did not automatically download, you can retrieve it here: 
+      <a href="#" target="_blank" id="linkToZip"><span title="get zip file" id="zipIcon" class="icon"></span></a>
+      <!-- <br>Please note, files will be deleted from server, rendering this link inactive in one hour. -->
+    </p>
+  </section>
+  <footer>
+    <p>Allisha M. Ali &copy; 2016.  All Rights Reserved.<br>
+    Please use and enjoy for free! However, no part of this application and code therein, shall be replicated, reproduced or modified in any way without expressed written consent from its <a href="http://interactiveali.com" target="_blank">author</a>.
+  </p>
+  </footer>
+  
+<script src="js/jquery.min.1.11.2.js"></script>
+<script src="js/jquery-ui.min.1.11.3.js"></script>
+<script src="js/canvas_resize.js"></script>
+<script src="script.js"></script>
+<!-- <script src="js/script.min.js"></script>  -->
+
+</body>
+</html>
