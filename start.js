@@ -5,8 +5,6 @@
 // $ npm install cookie-parser --save
 // $ npm install multer --save
 // $ npm install archiver --save
-// $ npm install requirejs --save
-// $ npm install jquery --save
 // Navigate to tinythumbs directory and start app...
 // tinythumbs $ node start.js
 
