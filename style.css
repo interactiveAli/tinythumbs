@@ -174,15 +174,16 @@ label.dropzone{
   	background-color: #F6FAF9;
 }
 
-label.dropzone h2{
+label.dropzone > span{
+	display: block;
+	margin:0 auto;
+}
+
+label.dropzone span.heading{
 	margin: 0 auto;
 	margin: 100px auto 0;
 	font-size: 30px;
   	color: #00CE8D;
-}
-
-label.dropzone p{
-	margin:0 auto;
 }
 
 #images{
@@ -258,23 +259,23 @@ label.dropzone p{
 	vertical-align: middle;
 }
 
-#outputFileType input[data-value="image/png"] + figure{
+#outputFileType input[data-value="image/png"] + span{
 	background:url('../img/icon_png.png') no-repeat center center;
 	border: 4px solid #FFF;
   	border-radius: 10px;
 }
 
-#outputFileType input[data-value="image/png"]:checked + figure{
+#outputFileType input[data-value="image/png"]:checked + span{
 	border: 4px solid #00CE8D;
 }
 
-#outputFileType input[data-value="image/jpeg"] + figure{
+#outputFileType input[data-value="image/jpeg"] + span{
 	background:url('../img/icon_jpg.png') no-repeat center center;
 	border: 4px solid #FFF;
   	border-radius: 10px;
 }
 
-#outputFileType input[data-value="image/jpeg"]:checked + figure{
+#outputFileType input[data-value="image/jpeg"]:checked + span{
 	border: 4px solid #00CE8D;
 }
 
@@ -325,10 +326,6 @@ li.loadError, li.downloadError {
 #smoothingWarning{
 	padding:20px;
 	margin:0 auto;
-	/*display: inline-block;
-	width: 288px;
-	vertical-align: middle;
-	margin:20px;*/
 }
 
 #downloadComplete{
@@ -402,14 +399,6 @@ li.loadError, li.downloadError {
 	text-align: center;
 }
 
-/*.img_prev.loading{
-	background-color: #00E0A0;
-}
-
-.img_prev.waiting{
-	background-color: #DAE000;
-}*/
-
 .img_prev canvas{
 	position:relative;
 }
@@ -436,12 +425,13 @@ footer a {
 	color: #000;
 }
 
-a.tooltips {
+.tooltips {
   position: relative;
   display: inline;
   text-decoration: none;
+  cursor: pointer;
 }
-a.tooltips div {
+.tooltips div {
   position: absolute;
   padding: 15px;
   color: #000000;
@@ -453,14 +443,14 @@ a.tooltips div {
   box-shadow: 2px 2px 4px #000;
 }
 
-a.tooltips div label{
+.tooltips div label{
 	display: block;
 	white-space: nowrap;
 	margin:0;
 	padding:0;
 }
 
-a.tooltips div:after {
+.tooltips div:after {
   content: '';
   position: absolute;
   top: 50%;
@@ -471,7 +461,7 @@ a.tooltips div:after {
   border-right: 8px solid transparent;
   border-bottom: 8px solid transparent;
 }
-a:hover.tooltips div {
+.tooltips:hover div {
   visibility: visible;
   opacity: 1;
   top:50%;
