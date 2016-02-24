@@ -14,6 +14,8 @@ $ npm install cookie-parser --save
 $ npm install multer --save
 $ npm install archiver --save
 ```
+Download tinythumbs ZIP from https://github.com/interactiveAli/tinythumbs
+
 Navigate to tinythumbs directory and start app!
 ```
 tinythumbs $ node start.js
