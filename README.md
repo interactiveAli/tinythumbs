@@ -2,22 +2,18 @@
 
 A browser-based tool that allows you to generate thumbnails for up to 20 images and download them in a single zip file. Zoom, drag or use the 'best fit' feature to position your thumbnails perfectly.
 
-Built with HTML5, jQuery and Node.js with Express. 
+Built with HTML5, jQuery and Node.js with Express. RequireJS is used to load scripts.
 
 ###SET UP
 Install the following packages if you don't already have them:
 
 ```
-$ npm install express --save
-$ npm install body-parser --save
-$ npm install cookie-parser --save
-$ npm install multer --save
-$ npm install archiver --save
+$ npm install
 ```
 Download tinythumbs ZIP from https://github.com/interactiveAli/tinythumbs
 
 Navigate to tinythumbs directory and start app!
 ```
-tinythumbs $ node start.js
+tinythumbs $ npm start
 ```
-Go to 'http://localhost:1111' to view interface.
+Go to 'http://localhost:8080' to view interface.
