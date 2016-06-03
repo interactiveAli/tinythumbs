@@ -1,12 +1,5 @@
 // TERMINAL:
-// If express not installed...
-// $ npm install express --save
-// $ npm install body-parser --save
-// $ npm install cookie-parser --save
-// $ npm install multer --save
-// $ npm install archiver --save
-// Navigate to tinythumbs directory and start app...
-// tinythumbs $ node start.js
+// $ npm start
 
 
 var express = require('express'),
@@ -17,13 +10,14 @@ var express = require('express'),
   fs = require('fs'),
   archiver = require('archiver');
 
-app.use(express.static(__dirname));
+
+app.use(express.static(path.join(__dirname, 'public'))); 
 
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // Create uploads folder
-fs.mkdir('uploads', function(err){
+fs.mkdir('public/uploads', function(err){
   if (err) {
     console.error(err);
   }else{
@@ -34,13 +28,13 @@ fs.mkdir('uploads', function(err){
 // This responds with the homepage
 app.get('/', function (req, res) {
    console.log("Got a GET request for the homepage");
-   res.sendFile( __dirname + "/" + "index.htm" );
+   res.sendFile( __dirname + "/" + "index.html" );
 })
 
 app.post('/getZip', urlencodedParser, function (req, res) {
 
   var session = req.body.session,
-    dirPath = 'uploads/'+ req.body.session,
+    dirPath = 'public/uploads/'+ req.body.session,
     fs = require('fs'),
     archiver = require('archiver'),
     filepath = __dirname + '/' + dirPath + '.zip',
@@ -50,6 +44,7 @@ app.post('/getZip', urlencodedParser, function (req, res) {
   output.on('close', function () {
       console.log(archive.pointer() + ' total bytes');
       console.log(filepath + " has been created successfully.");
+
       res.send([(dirPath+'.zip')]);
   });
 
@@ -140,11 +135,15 @@ function setImgType(imgData){
   
 }
 
-var server = app.listen(1111, function () {
+// sets port 8080 to default or unless otherwise specified in the environment
+app.set('port', process.env.PORT || 8080);
+var port = app.get('port'),
+  host;
 
-  var host = server.address().address
-  var port = server.address().port
+var server = app.listen(port, function () {
 
-  console.log("Access tinythumbs interface at http://%s:%s", host, port)
+  host = server.address().address;
+
+  console.log("Access tinythumbs interface at http://%s:%s", host, port);
 
 })

@@ -1,0 +1,20 @@
+{
+  "name": "tinythumbs",
+  "author":"Allisha Ali",
+  "version": "0.0.1",
+  "description":"A browser-based tool that allows you to generate thumbnails for up to 20 images and download them in a single zip file. Zoom, drag or use the 'best fit' feature to position your thumbnails perfectly. Built with HTML5, jQuery, RequireJS and Node.js with Express.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/interactiveAli/tinythumbs.git"
+  },
+  "scripts": {
+    "start": "node start.js"
+  },
+  "dependencies": {
+    "archiver": "^1.0.0",
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "multer": "^1.1.0"
+  }
+}
